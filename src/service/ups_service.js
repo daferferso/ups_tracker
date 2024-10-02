@@ -1,3 +1,15 @@
+/**
+ * Fetches cookies from the UPS tracking page.
+ *
+ * @async
+ * @function getCookies
+ * @returns {Promise<{ cookiesString: string, cookiesObject: Object }>}
+ * An object containing:
+ * - cookiesString: A string of cookies joined by space.
+ * - cookiesObject: An object mapping cookie names to their values.
+ *
+ * @throws {Error} If the fetch operation fails or if the response is not ok.
+ */
 export async function getCookies() {
   try {
     const res = await fetch("https://www.ups.com/track", {
@@ -46,6 +58,17 @@ export async function getCookies() {
   }
 }
 
+/**
+ * Retrieves the status of a package using the provided tracking number and cookies.
+ *
+ * @async
+ * @function getStatus
+ * @param {string} trackingNumber - The tracking number of the package.
+ * @param {{ cookiesString: string, cookiesObject: Object }} cookies - An object containing cookies.
+ * @returns {Promise<Object>} The JSON response containing the order status.
+ *
+ * @throws {Error} If the fetch operation fails or if the response is not ok.
+ */
 export async function getStatus(trackingNumber, cookies) {
   try {
     const res = await fetch(

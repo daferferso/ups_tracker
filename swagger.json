@@ -1,0 +1,38 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "UPS Tracker API",
+    "version": "1.0.0",
+    "description": "UPSTracker is a Node.js service that fetches real-time order status from UPS using tracking numbers. It handles cookie management and API requests to UPS’s platform, providing detailed tracking information for your shipments."
+  },
+  "paths": {
+    "/{trackingNumber}": {
+      "get": {
+        "summary": "Get package status",
+        "parameters": [
+          {
+            "name": "trackingNumber",
+            "in": "path",
+            "required": true,
+            "description": "Tracking number of the package (18 characters).",
+            "schema": {
+              "type": "string",
+              "example": "1Z3TWW700308932865"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Package status retrieved successfully."
+          },
+          "400": {
+            "description": "Invalid tracking number."
+          },
+          "500": {
+            "description": "Error retrieving the package status."
+          }
+        }
+      }
+    }
+  }
+}
