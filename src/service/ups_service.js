@@ -1,4 +1,4 @@
-async function getCookies() {
+export async function getCookies() {
   const res = await fetch("https://www.ups.com/track", {
     headers: {
       accept:
@@ -37,7 +37,7 @@ async function getCookies() {
   return { cookiesString, cookiesObject };
 }
 
-async function getStatus(trackingNumber, cookies) {
+export async function getStatus(trackingNumber, cookies) {
   const res = await fetch(
     "https://webapis.ups.com/track/api/Track/GetStatus?loc=en_US",
     {
@@ -63,15 +63,6 @@ async function getStatus(trackingNumber, cookies) {
       method: "POST",
     }
   );
-  console.log(res.status);
   const data = await res.json();
   return data;
 }
-
-async function main() {
-  let cookies = await getCookies();
-  const result = await getStatus("1Z3TWW700309256282", cookies);
-  console.log(result);
-}
-
-main();
