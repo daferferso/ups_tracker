@@ -23,19 +23,29 @@ npm install
 
 ## Usage
 
-1. Start the server:
+1. Set up your environment variables: Create a `.env` file in the root directory of your project based on the provided `.env.template`. Ensure that the variables are set according to your environment. For example:
+
+   ```plaintext
+   HOST_URL=http://localhost:3000
+   API_TITLE=UPS Tracker API
+   API_VERSION=1.0.0
+   API_DESCRIPTION="UPSTracker is a Node.js service that fetches real-time order status from UPS using tracking numbers. It handles cookie management and API requests to UPS’s platform, providing detailed tracking information for your shipments."
+
+   ```
+
+2. Start the server:
 
 ```bash
 npm run dev
 ```
 
-2. Access the API documentation at:
+3. Access the API documentation at:
 
 ```bash
 http://localhost:3000/api-docs
 ```
 
-3. To retrieve the status of a package, send a GET request to:
+4. To retrieve the status of a package, send a GET request to:
 
 ```bash
 http://localhost:3000/{trackingNumber}

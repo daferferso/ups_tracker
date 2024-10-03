@@ -2,16 +2,15 @@ import swaggerJSDoc from "swagger-jsdoc";
 
 const swaggerOptions = {
   definition: {
-    openapi: "3.0.0",
+    openapi: process.env.OPEN_API_VERSION,
     info: {
-      title: "UPS Tracker API",
-      version: "1.0.0",
-      description:
-        "UPSTracker is a Node.js service that fetches real-time order status from UPS using tracking numbers. It handles cookie management and API requests to UPS’s platform, providing detailed tracking information for your shipments.",
+      title: process.env.API_TITLE,
+      version: process.env.API_VERSION,
+      description: process.env.API_DESCRIPTION,
     },
     servers: [
       {
-        url: "https://ups-tracker.vercel.app",
+        url: process.env.HOST_URL,
       },
     ],
   },
