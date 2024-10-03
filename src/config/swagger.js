@@ -7,6 +7,11 @@ const swaggerOptions = {
       title: process.env.API_TITLE,
       version: process.env.API_VERSION,
       description: process.env.API_DESCRIPTION,
+      contact: {
+        name: "Fernando Fernandez",
+        email: "daferferso@gmail.com",
+        url: "https://github.com/daferferso/ups_tracker",
+      },
     },
     servers: [
       {
